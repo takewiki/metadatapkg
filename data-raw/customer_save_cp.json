@@ -1,0 +1,208 @@
+{
+    "NeedUpDateFields": [],
+    "NeedReturnFields": [],
+    "IsDeleteEntry": "true",
+    "SubSystemId": "",
+    "IsVerifyBaseDataField": "false",
+    "IsEntryBatchFill": "true",
+    "ValidateFlag": "true",
+    "NumberSearch": "true",
+    "IsAutoAdjustField": "false",
+    "InterationFlags": "",
+    "IgnoreInterationFlag": "",
+    "Model": {
+        "FCUSTID": 0,
+        "FCreateOrgId": {
+            "FNumber": ""
+        },
+        "FUseOrgId": {
+            "FNumber": ""
+        },
+        "FName": "",
+        "FShortName": "",
+        "FCOUNTRY": {
+            "FNumber": ""
+        },
+        "FPROVINCIAL": {
+            "FNumber": ""
+        },
+        "FADDRESS": "",
+        "FZIP": "",
+        "FWEBSITE": "",
+        "FTEL": "",
+        "FFAX": "",
+        "FCompanyClassify": {
+            "FNumber": ""
+        },
+        "FCompanyNature": {
+            "FNumber": ""
+        },
+        "FCompanyScale": {
+            "FNumber": ""
+        },
+        "FNumber": "",
+        "FINVOICETITLE": "",
+        "FTAXREGISTERCODE": "",
+        "FINVOICEBANKNAME": "",
+        "FINVOICETEL": "",
+        "FINVOICEBANKACCOUNT": "",
+        "FINVOICEADDRESS": "",
+        "FSUPPLIERID": {
+            "FNumber": ""
+        },
+        "FIsGroup": "false",
+        "FIsDefPayer": "false",
+        "FCustTypeId": {
+            "FNumber": ""
+        },
+        "FGROUPCUSTID": {
+            "FNumber": ""
+        },
+        "FGroup": {
+            "FNumber": ""
+        },
+        "FTRADINGCURRID": {
+            "FNumber": ""
+        },
+        "FCorrespondOrgId": {
+            "FNumber": ""
+        },
+        "FDescription": "",
+        "FSALDEPTID": {
+            "FNumber": ""
+        },
+        "FSALGROUPID": {
+            "FNumber": ""
+        },
+        "FSELLER": {
+            "FNumber": ""
+        },
+        "FSETTLETYPEID": {
+            "FNumber": ""
+        },
+        "FRECCONDITIONID": {
+            "FNumber": ""
+        },
+        "FDISCOUNTLISTID": {
+            "FNumber": ""
+        },
+        "FPRICELISTID": {
+            "FNumber": ""
+        },
+        "FTRANSLEADTIME": 0,
+        "FInvoiceType": "",
+        "FTaxType": {
+            "FNumber": ""
+        },
+        "FRECEIVECURRID": {
+            "FNumber": ""
+        },
+        "FPriority": 0,
+        "FTaxRate": {
+            "FNumber": ""
+        },
+        "FISCREDITCHECK": "false",
+        "FIsTrade": "false",
+        "F_SZSP_KHFL": {
+            "FNumber": ""
+        },
+        "FUncheckExpectQty": "false",
+        "FT_BD_CUSTOMEREXT": {
+            "FEntryId": 0,
+            "FEnableSL": "false",
+            "FFreezeLimit": "",
+            "FFreezeOperator": {
+                "FUserID": ""
+            },
+            "FFreezeDate": "1900-01-01",
+            "FPROVINCE": {
+                "FNumber": ""
+            },
+            "FCITY": {
+                "FNumber": ""
+            },
+            "FDefaultConsiLoc": {
+                "FNUMBER": ""
+            },
+            "FDefaultSettleLoc": {
+                "FNUMBER": ""
+            },
+            "FDefaultPayerLoc": {
+                "FNUMBER": ""
+            },
+            "FDefaultContact": {
+                "FNUMBER": ""
+            },
+            "FMarginLevel": 0,
+            "FDebitCard": "",
+            "FSettleId": {
+                "FNUMBER": ""
+            },
+            "FChargeId": {
+                "FNUMBER": ""
+            },
+            "FALLOWJOINZHJ": "false"
+        },
+        "FT_BD_CUSTLOCATION": [
+            {
+                "FContactId": {
+                    "FNUMBER": ""
+                },
+                "FIsDefaultConsigneeCT": "false",
+                "FIsCopy": "false"
+            }
+        ],
+        "FT_BD_CUSTBANK": [
+            {
+                "FENTRYID": 0,
+                "FCOUNTRY1": {
+                    "FNumber": ""
+                },
+                "FBANKCODE": "",
+                "FACCOUNTNAME": "",
+                "FBankTypeRec": {
+                    "FNUMBER": ""
+                },
+                "FTextBankDetail": "",
+                "FBankDetail": {
+                    "FNUMBER": ""
+                },
+                "FOpenAddressRec": "",
+                "FOPENBANKNAME": "",
+                "FCNAPS": "",
+                "FCURRENCYID": {
+                    "FNumber": ""
+                },
+                "FISDEFAULT1": "false"
+            }
+        ],
+        "FT_BD_CUSTCONTACT": [
+            {
+                "FENTRYID": 0,
+                "FNUMBER1": "",
+                "FNAME1": "",
+                "FADDRESS1": "",
+                "FTRANSLEADTIME1": 0,
+                "FMOBILE": "",
+                "FIsDefaultConsignee": "false",
+                "FIsDefaultSettle": "false",
+                "FIsDefaultPayer": "false",
+                "FIsUsed": "false"
+            }
+        ],
+        "FT_BD_CUSTORDERORG": [
+            {
+                "FEntryID": 0,
+                "FOrderOrgId": {
+                    "FNumber": ""
+                },
+                "FIsDefaultOrderOrg": "false"
+            }
+        ],
+        "FT_BD_CUSTSUBACCOUNT": [
+            {
+                "FEntryID": 0
+            }
+        ]
+    }
+}

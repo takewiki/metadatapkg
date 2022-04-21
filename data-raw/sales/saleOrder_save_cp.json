@@ -1,0 +1,328 @@
+{
+    "NeedUpDateFields": [],
+    "NeedReturnFields": [],
+    "IsDeleteEntry": "true",
+    "SubSystemId": "",
+    "IsVerifyBaseDataField": "false",
+    "IsEntryBatchFill": "true",
+    "ValidateFlag": "true",
+    "NumberSearch": "true",
+    "IsAutoAdjustField": "false",
+    "InterationFlags": "",
+    "IgnoreInterationFlag": "",
+    "Model": {
+        "FID": 0,
+        "FBillTypeID": {
+            "FNUMBER": ""
+        },
+        "FBillNo": "",
+        "FDate": "1900-01-01",
+        "FSaleOrgId": {
+            "FNumber": ""
+        },
+        "FCustId": {
+            "FNumber": ""
+        },
+        "FHeadDeliveryWay": {
+            "FNumber": ""
+        },
+        "FReceiveId": {
+            "FNumber": ""
+        },
+        "FHEADLOCID": {
+            "FNumber": ""
+        },
+        "FCorrespondOrgId": {
+            "FNumber": ""
+        },
+        "FSaleDeptId": {
+            "FNumber": ""
+        },
+        "FSaleGroupId": {
+            "FNumber": ""
+        },
+        "FSalerId": {
+            "FNumber": ""
+        },
+        "FReceiveAddress": "",
+        "FSettleId": {
+            "FNumber": ""
+        },
+        "FReceiveContact": {
+            "FNAME": ""
+        },
+        "FChargeId": {
+            "FNumber": ""
+        },
+        "FNetOrderBillNo": "",
+        "FNetOrderBillId": 0,
+        "FOppID": 0,
+        "FSalePhaseID": {
+            "FNUMBER": ""
+        },
+        "FISINIT": "false",
+        "FNote": "",
+        "FIsMobile": "false",
+        "F_RQAE_Commission": "false",
+        "F_RQAE_HC": "false",
+        "F_RQAE_AC": "false",
+        "FSOFrom": "",
+        "F_SZSP_XSLX": {
+            "FNumber": ""
+        },
+        "F_SZSP_JJCD": {
+            "FNumber": ""
+        },
+        "F_SZSP_NMJSY": "",
+        "F_SZSP_Remarks": "",
+        "FSaleOrderFinance": {
+            "FEntryId": 0,
+            "FSettleCurrId": {
+                "FNumber": ""
+            },
+            "FRecConditionId": {
+                "FNumber": ""
+            },
+            "FIsPriceExcludeTax": "false",
+            "FSettleModeId": {
+                "FNumber": ""
+            },
+            "FIsIncludedTax": "false",
+            "FPriceListId": {
+                "FNumber": ""
+            },
+            "FDiscountListId": {
+                "FNumber": ""
+            },
+            "FExchangeTypeId": {
+                "FNumber": ""
+            },
+            "FMarginLevel": 0,
+            "FMargin": 0,
+            "FOverOrgTransDirect": "false",
+            "FAllDisCount": 0,
+            "FRecBarcodeLink": ""
+        },
+        "FSaleOrderClause": [
+            {
+                "FEntryID": 0,
+                "FClauseId": {
+                    "FNumber": ""
+                },
+                "FClauseDesc": ""
+            }
+        ],
+        "FSaleOrderEntry": [
+            {
+                "FEntryID": 0,
+                "FReturnType": "",
+                "FRowType": "",
+                "FMapId": {
+                    "FNumber": ""
+                },
+                "FMaterialId": {
+                    "FNumber": ""
+                },
+                "FAuxPropId": {},
+                "FParentMatId": {
+                    "FNUMBER": ""
+                },
+                "FUnitID": {
+                    "FNumber": ""
+                },
+                "FInventoryQty": 0,
+                "FCurrentInventory": 0,
+                "FAwaitQty": 0,
+                "FAvailableQty": 0,
+                "FQty": 0,
+                "FPriceUnitId": {
+                    "FNumber": ""
+                },
+                "FPurPriceUnitId": {
+                    "FNumber": ""
+                },
+                "FOldQty": 0,
+                "FPrice": 0,
+                "FTaxPrice": 0,
+                "FIsFree": "false",
+                "FTaxCombination": {
+                    "FNumber": ""
+                },
+                "FEntryTaxRate": 0,
+                "FProduceDate": "1900-01-01",
+                "FExpPeriod": 0,
+                "FExpUnit": "",
+                "FExpiryDate": "1900-01-01",
+                "FLot": {
+                    "FNumber": ""
+                },
+                "FPriceDiscount": 0,
+                "FInStockPrice": 0,
+                "FDiscountRate": 0,
+                "FDeliveryDate": "1900-01-01",
+                "FStockOrgId": {
+                    "FNumber": ""
+                },
+                "FSettleOrgIds": {
+                    "FNumber": ""
+                },
+                "FSupplyOrgId": {
+                    "FNumber": ""
+                },
+                "FOwnerTypeId": "",
+                "FOwnerId": {
+                    "FNumber": ""
+                },
+                "FEntryNote": "",
+                "F_SZSP_YWTC": 0,
+                "FReserveType": "",
+                "FPriority": 0,
+                "FMtoNo": "",
+                "FPromotionMatchType": "",
+                "FNetOrderEntryId": 0,
+                "FPriceBaseQty": 0,
+                "FStockUnitID": {
+                    "FNumber": ""
+                },
+                "FStockQty": 0,
+                "FStockBaseQty": 0,
+                "FServiceContext": "",
+                "FOUTLMTUNIT": "",
+                "FOutLmtUnitID": {
+                    "FNumber": ""
+                },
+                "FOldTaxPrice": 0,
+                "FSOStockId": {
+                    "FNUMBER": ""
+                },
+                "FOldAmount": 0,
+                "FSOStockLocalId": {
+                    "FSOSTOCKLOCALID__FF100003": {
+                        "FNumber": ""
+                    },
+                    "FSOSTOCKLOCALID__FF100726": {
+                        "FNumber": ""
+                    },
+                    "FSOSTOCKLOCALID__FF100728": {
+                        "FNumber": ""
+                    },
+                    "FSOSTOCKLOCALID__FF100729": {
+                        "FNumber": ""
+                    },
+                    "FSOSTOCKLOCALID__FF100730": {
+                        "FNumber": ""
+                    },
+                    "FSOSTOCKLOCALID__FF100731": {
+                        "FNumber": ""
+                    },
+                    "FSOSTOCKLOCALID__FF100732": {
+                        "FNumber": ""
+                    },
+                    "FSOSTOCKLOCALID__FF100733": {
+                        "FNumber": ""
+                    },
+                    "FSOSTOCKLOCALID__FF100734": {
+                        "FNumber": ""
+                    },
+                    "FSOSTOCKLOCALID__FF100735": {
+                        "FNumber": ""
+                    }
+                },
+                "FISMRP": "false",
+                "FOldAllAmount": 0,
+                "FOldDiscountRate": 0,
+                "FOldDiscount": 0,
+                "FRPDiscountRate": 0,
+                "FSPMENTRYID": "",
+                "FSPMANDRPMCONTENT": "",
+                "FBOMEntryId": 0,
+                "F_SZSP_FSPC1": "false",
+                "F_SZSP_GLCB": 0,
+                "F_SZSP_XSLR": 0,
+                "F_SZSP_MLXS": 0,
+                "FAllAmountExceptDisCount": 0,
+                "F_SZSP_ZLTC": 0,
+                "F_SZSP_HH": 0,
+                "FOrderEntryPlan": [
+                    {
+                        "FDetailID": 0,
+                        "FDetailLocId": {
+                            "FNumber": ""
+                        },
+                        "FDetailLocAddress": "",
+                        "FPlanDate": "1900-01-01",
+                        "FTransportLeadTime": 0,
+                        "FPlanQty": 0
+                    }
+                ],
+                "FTaxDetailSubEntity": [
+                    {
+                        "FDetailID": 0,
+                        "FTaxRate": 0,
+                        "FSellerWithholding": "false",
+                        "FBuyerWithholding": "false"
+                    }
+                ]
+            }
+        ],
+        "FSaleOrderPlan": [
+            {
+                "FEntryID": 0,
+                "FNeedRecAdvance": "false",
+                "FReceiveType": {
+                    "FNumber": ""
+                },
+                "FRecAdvanceRate": 0,
+                "FRecAdvanceAmount": 0,
+                "FMustDate": "1900-01-01",
+                "FRelBillNo": "",
+                "FRecAmount": 0,
+                "FControlSend": "",
+                "FIsOutStockByRecamount": "false",
+                "FOverRecAmount": 0,
+                "FReMark": "",
+                "FPlanMaterialId": {
+                    "FNUMBER": ""
+                },
+                "FMaterialSeq": 0,
+                "FMaterialRowID": "",
+                "FOrderEntryId": 0,
+                "FMaterialTaxPrice": 0,
+                "FMaterialPriceUnitQty": 0,
+                "FMaterialPriceUnitID": {
+                    "FNumber": ""
+                },
+                "FSaleOrderPlanEntry": [
+                    {
+                        "FDETAILID": 0,
+                        "FOverRecAmount_D": 0,
+                        "FPESettleOrgId": {
+                            "FNumber": ""
+                        }
+                    }
+                ]
+            }
+        ],
+        "FSalOrderTrace": [
+            {
+                "FEntryID": 0,
+                "FLogComId": {
+                    "FCODE": ""
+                },
+                "FCarryBillNo": "",
+                "FPhoneNumber": "",
+                "FFrom": "",
+                "FTo": "",
+                "FDelTime": "1900-01-01",
+                "FTraceStatus": "",
+                "FSalOrderTraceDetail": [
+                    {
+                        "FDetailID": 0,
+                        "FTraceTime": "",
+                        "FTraceDetail": ""
+                    }
+                ]
+            }
+        ]
+    }
+}
