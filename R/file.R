@@ -93,7 +93,7 @@ return(res)
 #' metadata_createTable()
 metadata_createTable <- function(conn= tsda::conn_rds('metadata'),
                                  FFormName ='物料',FActionDesc ='保存',FOwnerName ='kingdee') {
-  sql <- paste0(" select FTableName,FTableFieldName,FDataType,FDataLength,FAccessToken,FType,FTableKey,FEntrykey  from t_api_erp_kdc
+  sql <- paste0(" select FTableName,FTableFieldName,FSqlDataType,FAccessToken,FType,FTableKey,FEntrykey  from t_api_erp_kdc
   where FFormName ='",FFormName,"' and FActionDesc ='",FActionDesc,"' and FOwnerName ='",FOwnerName,"'")
   print(sql)
   data <- tsda::sql_select(conn,sql)
@@ -118,13 +118,15 @@ metadata_createTable <- function(conn= tsda::conn_rds('metadata'),
         #print('bug_type')
         #print(type)
         if(type == 'entryList'){
-          sql_key = paste0(tableKey," int, ",entryKey," int, ")
+          sql_key = paste0(tableKey," nvarchar(100), ",entryKey," int, ")
         }else{
           sql_key = " "
         }
 
         sql_head = paste0("create table ",tableName,"  ")
-        sql_body =  paste0(item$FTableFieldName,' ',item$FDataType,item$FDataLength,collapse = ",")
+        #做了更加精细化的管理
+        #取代原来的根据FDataType + FDataLength的判断方式
+        sql_body =  paste0(item$FTableFieldName,' ',item$FSqlDataType,collapse = ",")
         sql_all = paste0(sql_head,"(",sql_key,sql_body,")")
 
         if(metadata_objectIsNew(FToken = token,objectName =tableName )){
