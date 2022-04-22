@@ -1573,6 +1573,39 @@ model_updateCaption <-function(conn = tsda::conn_rds('metadata'),
 }
 
 
+#' 更新SQL数据类型,进行更加精细化管理
+#'
+#' @param conn 连接
+#' @param FFormName 表单名称
+#' @param FActionDesc 操作名称
+#' @param FOwnerName 所有者
+#'
+#' @return 返回值
+#' @export
+#'
+#' @examples
+#' model_updateSqlDataType()
+model_updateSqlDataType <-function(conn = tsda::conn_rds('metadata'),
+                               FFormName = '物料',
+                               FActionDesc ='保存',
+                               FOwnerName ='kingdee'){
+
+  sql <- paste0("
+update a set a.FSqlDataType = b.FSqlDataType    from t_api_erp_kdc a
+inner join vw_api_kdc_field b
+on a.FOwnerName = b.FOwnerName and a.FFormName=  b.FFormName and a.FActionDesc = b.FActionDesc and a.FMainKey = b.FMainKey
+  where  a.FFormName ='",FFormName,"' and a.FActionDesc ='",FActionDesc,"'  and a.FOwnerName ='",FOwnerName,"'")
+  tsda::sql_update(conn,sql)
+
+
+
+
+}
+
+
+
+
+
 
 
 #' 返回所有数据
@@ -1614,6 +1647,8 @@ model_dataAllPart <-function(json_file='data-raw/material_save_cp.json',
   tsda::db_writeTable(conn=conn,table_name = 't_api_erp_kdc',r_object = res,append = TRUE)
   #更新字面说明及必录项部分，这个单独的表，用于匹配
   model_updateCaption(conn = conn,FFormName = FFormName,FActionDesc = FActionDesc,FOwnerName = FOwnerName)
+  #更新字段类型,用于SQL的数据存储
+  model_updateSqlDataType(conn = conn,FFormName = FFormName,FActionDesc = FActionDesc,FOwnerName = FOwnerName)
 
   return(res)
 
