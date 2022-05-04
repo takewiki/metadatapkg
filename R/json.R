@@ -1602,6 +1602,81 @@ on a.FOwnerName = b.FOwnerName and a.FFormName=  b.FFormName and a.FActionDesc =
 
 }
 
+#' 更新数据类型
+#'
+#' @param conn 连接
+#' @param FFormName 表名
+#' @param FActionDesc 操作名称
+#' @param FOwnerName 所有者
+#'
+#' @return 返回值
+#' @export
+#'
+#' @examples
+#' model_updateDataType()
+model_updateDataType <-function(conn = tsda::conn_rds('metadata'),
+                                   FFormName = '物料',
+                                   FActionDesc ='保存',
+                                   FOwnerName ='kingdee'){
+
+  #更新小数部分
+  sql_decimal <- paste0("
+ update a set FDataType = 'decimal'  from t_api_erp_kdc a  where  FSqlDataType like 'decimal%'
+  and   a.FFormName ='",FFormName,"' and a.FActionDesc ='",FActionDesc,"'  and a.FOwnerName ='",FOwnerName,"'")
+  tsda::sql_update(conn,sql_decimal)
+  #更新文本部分
+  sql_nvarchar <- paste0("
+  update a set FDataType = 'nvarchar'  from t_api_erp_kdc a  where  FSqlDataType like 'nvarchar%'
+  and   a.FFormName ='",FFormName,"' and a.FActionDesc ='",FActionDesc,"'  and a.FOwnerName ='",FOwnerName,"'")
+  tsda::sql_update(conn,sql_nvarchar)
+  #update date and datetime datatype.
+  sql_date <- paste0("
+    update a set FDataType = 'nvarchar'  from t_api_erp_kdc a  where FSqlDataType like 'date%'
+  and   a.FFormName ='",FFormName,"' and a.FActionDesc ='",FActionDesc,"'  and a.FOwnerName ='",FOwnerName,"'")
+  tsda::sql_update(conn,sql_date)
+  #更新整数部分
+  sql_int <- paste0("
+       update a set FDataType = 'int'  from t_api_erp_kdc a  where  FSqlDataType like 'int%'
+  and   a.FFormName ='",FFormName,"' and a.FActionDesc ='",FActionDesc,"'  and a.FOwnerName ='",FOwnerName,"'")
+  tsda::sql_update(conn,sql_int)
+
+
+
+
+}
+
+
+#' 更新模型的可见性
+#'
+#' @param conn 连接
+#' @param FFormName 表名
+#' @param FActionDesc 操作名
+#' @param FOwnerName 所有者
+#'
+#' @return 返回值
+#' @export
+#'
+#' @examples
+#' model_updateIsShow()
+model_updateIsShow <-function(conn = tsda::conn_rds('metadata'),
+                                FFormName = '物料',
+                                FActionDesc ='保存',
+                                FOwnerName ='kingdee'){
+
+  #肯定可见性
+  sql <- paste0("
+ update a  set a.FIsShow =  b.FIsShow  from t_api_erp_kdc  a
+ inner join  t_api_kdc_demo b
+ on a.FOwnerName = b.FOwnerName and a.FFormName = b.FFormName and a.FActionDesc =  b.FActionDesc
+ and a.FMainKey =  b.FMainKey where  a.FFormName ='",FFormName,"' and a.FActionDesc ='",FActionDesc,"'  and a.FOwnerName ='",FOwnerName,"'")
+  tsda::sql_update(conn,sql)
+
+
+
+
+}
+
+
 
 
 
@@ -1639,9 +1714,11 @@ model_dataAllPart <-function(json_file='data-raw/material_save_cp.json',
   res[res$FDefaultValue =='','FDataType'] = 'nvarchar'
   res[res$FDataType == 'int','FDataLength'] = ''
   res[res$FDataType == 'nvarchar','FDataLength'] = '(200)'
-  #默认显示,可以调整
-  res$FIsShow =1
+  #默认显示,可以调整,应该是默认不显示，然后根据demo数据进行显示才对
+  res$FIsShow = 0
   #删除历史数据
+  #添加了相应的字段
+  res$FSqlDataType <- ''
   model_delete(conn = conn,FFormName = FFormName,FActionDesc = FActionDesc,FOwnerName = FOwnerName)
   #上传相关数据
   tsda::db_writeTable(conn=conn,table_name = 't_api_erp_kdc',r_object = res,append = TRUE)
@@ -1649,6 +1726,10 @@ model_dataAllPart <-function(json_file='data-raw/material_save_cp.json',
   model_updateCaption(conn = conn,FFormName = FFormName,FActionDesc = FActionDesc,FOwnerName = FOwnerName)
   #更新字段类型,用于SQL的数据存储
   model_updateSqlDataType(conn = conn,FFormName = FFormName,FActionDesc = FActionDesc,FOwnerName = FOwnerName)
+  #update FDatatype field by FSqlDataType field
+  model_updateDataType(conn = conn,FFormName = FFormName,FActionDesc = FActionDesc,FOwnerName = FOwnerName)
+  #根据demo数据确定要显示的字段
+  model_updateIsShow(conn = conn,FFormName = FFormName,FActionDesc = FActionDesc,FOwnerName = FOwnerName)
 
   return(res)
 

@@ -33,6 +33,7 @@ metadata_read <- function(conn= tsda::conn_rds('metadata'),file_name = "data-raw
 #' @param conn 连接
 #'
 #' @return 返回值
+#' @export
 #'
 #' @examples
 #' metadata_getDbName()

@@ -1,6 +1,6 @@
   library(metadatapkg)
 
-  mydata = model_dataAllPart(FOwnerName = 'CP')
+  mydata = model_dataAllPart(FOwnerName = 'CP',FFormName = '销售订单',json_file = 'data-raw/sales/saleOrder_save_cp.json')
 
   View(mydata)
 
