@@ -7,7 +7,7 @@
 meta_createTable(
   conn = tsda::conn_rds("metadata"),
   FTableCaption = "产品大类",
-  FTableName = "vw_dict_multipleMaterial"
+  FDictTableName = "vw_dict_multipleMaterial"
 )
 }
 \arguments{
@@ -15,7 +15,7 @@ meta_createTable(
 
 \item{FTableCaption}{表名}
 
-\item{FTableName}{表名}
+\item{FDictTableName}{metadata table name}
 }
 \value{
 返回值

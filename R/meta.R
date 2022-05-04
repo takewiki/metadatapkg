@@ -21,7 +21,9 @@ meta_maxId <- function(conn=tsda::conn_rds('metadata'),FTableName ='t_dict_multi
 #' @param file_name 数据表
 #' @param conn  连接
 #' @param sheet_name 页答名称
-#' @param FTableName 表名
+#' @param overwrite 是否重写内码
+#'
+#' @param FDictTableName  数据字典表
 #'
 #' @return 返回值
 #' @export
@@ -29,18 +31,25 @@ meta_maxId <- function(conn=tsda::conn_rds('metadata'),FTableName ='t_dict_multi
 #' @examples
 #' meta_upload()
 meta_upload <- function(conn=tsda::conn_rds('metadata'),
-                        file_name ="data-raw/data/rds_mtrl_productCategory.xlsx",
+                        file_name ="data-raw/data/物料生成列表模板.xlsx",
                         sheet_name = "数据字典",
-                        FTableName = 't_dict_multipleMaterial'
+                        FDictTableName = 't_dict_multipleMaterial',
+                        overwrite = TRUE
                         ) {
   #library(readxl)
   data <- readxl::read_excel(file_name, sheet = sheet_name)
   ncount <- nrow(data)
-  max_Id = meta_maxId(conn = conn,FTableName=FTableName)
-  data_id = data.frame(FInterId = 1:ncount+max_Id)
-  data2 = cbind(data_id,data)
-  tsda::db_writeTable(conn = conn,table_name = FTableName,r_object = data2,append = T)
-  return(data2)
+  max_Id = meta_maxId(conn = conn,FTableName=FDictTableName)
+  FInterId = 1:ncount+max_Id
+  if(overwrite){
+    data$FInterId <-FInterId
+  }else{
+    data_id = data.frame(FInterId = 1:ncount+max_Id)
+    data = cbind(data_id,data)
+  }
+
+  tsda::db_writeTable(conn = conn,table_name = FDictTableName,r_object = data,append = T)
+  return(data)
 
 }
 
@@ -48,18 +57,21 @@ meta_upload <- function(conn=tsda::conn_rds('metadata'),
 #' 创建表格
 #'
 #' @param conn 连接
+#' @param FDictTableName metadata table name
 #' @param FTableCaption  表名
-#' @param FTableName 表名
 #'
 #' @return 返回值
 #' @export
 #'
 #' @examples
 #' meta_createTable()
-meta_createTable <-function(conn=tsda::conn_rds('metadata'),FTableCaption ='产品大类',FTableName ='vw_dict_multipleMaterial'){
+meta_createTable <-function(conn=tsda::conn_rds('metadata'),
+                            FTableCaption ='产品大类',
+                            FDictTableName ='vw_dict_multipleMaterial'
+                           ){
 
 sql <- paste0("
-select  FTableName,FFieldName,FSqlDataType,FAccessToken   from  ",FTableName,"
+select  FTableName,FFieldName,FSqlDataType,FAccessToken   from  ",FDictTableName,"
 where FTableCaption ='",FTableCaption,"'")
 data = tsda::sql_select(conn,sql)
 ncount =nrow(data)
@@ -101,18 +113,18 @@ if(ncount >0){
 #' 创建视图
 #'
 #' @param conn 连接
+#' @param FDictTableName  metadataTable
 #' @param FTableCaption  表名
-#' @param FTableName 表名
 #'
 #' @return 返回值
 #' @export
 #'
 #' @examples
 #' meta_createView()
-meta_createView <-function(conn=tsda::conn_rds('metadata'),FTableCaption ='产品大类',FTableName = 'vw_dict_multipleMaterial'){
+meta_createView <-function(conn=tsda::conn_rds('metadata'),FTableCaption ='产品大类',FDictTableName = 'vw_dict_multipleMaterial'){
 
   sql <- paste0("
-select  FTableName,FFieldName,FFieldCaption,FAccessToken   from  ",FTableName,"
+select  FTableName,FFieldName,FFieldCaption,FAccessToken   from  ",FDictTableName,"
 where FTableCaption ='",FTableCaption,"'")
   data = tsda::sql_select(conn,sql)
   ncount =nrow(data)

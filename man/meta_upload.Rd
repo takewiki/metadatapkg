@@ -6,9 +6,10 @@
 \usage{
 meta_upload(
   conn = tsda::conn_rds("metadata"),
-  file_name = "data-raw/data/rds_mtrl_productCategory.xlsx",
+  file_name = "data-raw/data/物料生成列表模板.xlsx",
   sheet_name = "数据字典",
-  FTableName = "t_dict_multipleMaterial"
+  FDictTableName = "t_dict_multipleMaterial",
+  overwrite = TRUE
 )
 }
 \arguments{
@@ -18,7 +19,9 @@ meta_upload(
 
 \item{sheet_name}{页答名称}
 
-\item{FTableName}{表名}
+\item{FDictTableName}{数据字典表}
+
+\item{overwrite}{是否重写内码}
 }
 \value{
 返回值
